@@ -1,13 +1,16 @@
 import {Entity, model, property} from '@loopback/repository';
 
-@model()
-export class Contact extends Entity {
+@model({
+  settings: {
+    strictObjectIDCoercion: true,
+  },
+})
+export class Message extends Entity {
   @property({
     type: 'string',
     id: true,
-    generated: true,
   })
-  id?: string;
+  id: string;
 
   @property({
     type: 'string',
@@ -21,14 +24,13 @@ export class Contact extends Entity {
   })
   message: string;
 
-
-  constructor(data?: Partial<Contact>) {
+  constructor(data?: Partial<Message>) {
     super(data);
   }
 }
 
-export interface ContactRelations {
+export interface MessageRelations {
   // describe navigational properties here
 }
 
-export type ContactWithRelations = Contact & ContactRelations;
+export type MessageWithRelations = Message & MessageRelations;

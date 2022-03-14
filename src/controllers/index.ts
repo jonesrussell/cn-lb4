@@ -1,2 +1,2 @@
+export * from './message.controller';
 export * from './ping.controller';
-export * from './contact.controller';
